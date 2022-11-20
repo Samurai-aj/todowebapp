@@ -1,4 +1,4 @@
-#
+
 FROM node:bullseye-slim
 
 RUN mkdir -p /home/frontend
