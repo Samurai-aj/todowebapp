@@ -52,10 +52,6 @@ workflows:
   front-workflow: 
       jobs: 
          - Build 
-             filters:
-                branches: 
-                  only: 
-                   - dev
          - publish-docker-image:
                  requires:
                    - Build
