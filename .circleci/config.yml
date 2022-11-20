@@ -47,11 +47,14 @@ jobs:
         - run:
             name: Deploy Over SSH
             command : |
-             ssh $SSH_USER@$SSH_HOST "cd todoassistant.api" ; "docker-compose down" ; "docker-compose up -d" 
+             ssh $SSH_USER@$SSH_HOST "cd todoassistant.api" || "docker-compose down" || "docker-compose up -d" 
 workflows:
   front-workflow: 
       jobs: 
-         - Build
+         - Build 
+             filters:
+                branches: 
+                  only: dev
          - publish-docker-image:
                  requires:
                    - Build
