@@ -54,7 +54,8 @@ workflows:
          - Build 
              filters:
                 branches: 
-                  only: dev
+                  only: 
+                   - dev
          - publish-docker-image:
                  requires:
                    - Build
