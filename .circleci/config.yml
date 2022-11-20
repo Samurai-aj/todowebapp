@@ -22,9 +22,7 @@ jobs:
           pkg-manager: yarn
       
       - run:
-          command:|
-           unset CI
-           yarn build
+          command:   CI=false yarn build
           name: Build app
       - persist_to_workspace:
           root: ~/project
